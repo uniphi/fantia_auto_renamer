@@ -16,6 +16,10 @@
     "webRequestBlocking"
   ],
 
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+
   "background": {
     "scripts": ["background.js"]
   },
