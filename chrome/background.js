@@ -86,34 +86,6 @@
     return true
   })
 
-  /*
-   *down.jsから動画情報を受け取ってダウンロードを開始する
-   */
-  // chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  //   let title = decodeURI(
-  //     fileURL.split(/file\/\d+\/\w{9}/)[1].split("?Key-Pair")[0]
-  //   );
-  //   chrome.storage.local.get(["filename"], settings => {
-  //     let filename = request.fanclub_ownername + " - " + title;
-  //     if (typeof settings.filename !== "undefined") {
-  //       if (settings.filename.indexOf("type1") != -1) {
-  //         filename = request.fanclub_ownername + " - " + title;
-  //       } else if (settings.filename.indexOf("type2") != -1) {
-  //         filename = "[" + request.fanclub_ownername + "] " + title;
-  //       } else {
-  //         filename = title;
-  //       }
-  //     }
-
-  //     chrome.downloads.download({
-  //       url: fileURL,
-  //       filename: filename,
-  //       conflictAction: "uniquify",
-  //       saveAs: true
-  //     })
-  //   })
-  // })
-
   /* エラーログ */
   function onError(e) {
     console.error(e)
@@ -178,4 +150,13 @@
     let splitDotExt = (str) => {
       return str.split(/(?=\.[^.]+$)/)
     }
+
+  /**
+   * アップデート時にメッセージを表示
+   */
+  chrome.runtime.onInstalled.addListener((details) => {
+    if (details.reason === "update" && details.previousVersion === "0.0.3") {
+      alert("Fantia Auto Renamerはversion1.0.0にアップデートされました。保存時のファイル名の設定方法が変わったので確認をお願いします。");
+    }
+  })
 }
