@@ -2,24 +2,110 @@
 
 <html>
   <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="options.css"/>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="options.css" />
   </head>
 
   <body>
-
     <section class="save-options">
-      <div class="title" >保存時のファイル名の形式を指定</div>
+      <div class="title">設定</div>
 
-      <label><input type="radio" id="type1" name="filename"/>username - title</label>
-      <label><input type="radio" id="type2" name="filename"/>[username] title</label>
-      <label><input type="radio" id="type3" name="filename"/>title</label>
+      <div>
+        <h1>ファイル名の設定</h1>
+        <p>保存時のファイル名を設定します</p>
+        <p>下記書式一覧表の書式が使えます</p>
+        <p>ex: ?fanclub-ownername? - ?file-origin-name? → fanclub-ownername - file-origin-name </p>
+        <p>ex: [?fanclub-ownername?] ?file-origin-name? → [fanclub-ownername] file-origin-name </p>
+        <p>ex: ?file-origin-name? → file-origin-name</p>
+        <p>ex: ?file-origin-name?_?year??month??day??hour??minute? → file-origin-name_201901012020</p>
+        <input type="text" id="filename_definition" value="">
+
+        <input type="button" value="設定を保存" id="save-button" />
+        <output id="status"></output>
+
+        <h2>書式一覧表</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>書式</th>
+              <th>説明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>?fanclub-ownername?</td>
+              <td>ファンクラブのオーナーの名前</td>
+            </tr>
+            <tr>
+              <td>?fanclub-name?</td>
+              <td>ファンクラブ自体の名前</td>
+            </tr>
+            <tr>
+              <td>?file-origin-name?</td>
+              <td>ファイルのオリジナル名（ダウンロードボタンのすぐ下に表示されているもの）</td>
+            </tr>
+            <tr>
+              <td>?post-title?</td>
+              <td>投稿のタイトル</td>
+            </tr>
+            <tr>
+              <td>?post-content-title?</td>
+              <td>投稿内のファイルそれぞれに付いているタイトル</td>
+            </tr>
+            <tr>
+              <td>?post-id?</td>
+              <td>投稿ID（URLの数字と同じ）</td>
+            </tr>
+            <tr>
+              <td>?file-number?</td>
+              <td>Fantia上のファイルID</td>
+            </tr>
+            <tr>
+              <td>?year?</td>
+              <td>アップロードされた年（西暦）</td>
+            </tr>
+            <tr>
+              <td>?month?</td>
+              <td>アップロードされた月（01~12）</td>
+            </tr>
+            <tr>
+              <td>?day?</td>
+              <td>アップロードされた日（01~31）</td>
+            </tr>
+            <tr>
+              <td>?hour?</td>
+              <td>アップロードされた時間（時間：00~23）</td>
+            </tr>
+            <tr>
+              <td>?minute?</td>
+              <td>アップロードされた時間（分：00~59）</td>
+            </tr>
+            <tr>
+              <td>?saved-year?</td>
+              <td>保存時点の年（西暦）</td>
+            </tr>
+            <tr>
+              <td>?saved-month?</td>
+              <td>保存時点の月（01~12）</td>
+            </tr>
+            <tr>
+              <td>?saved-day?</td>
+              <td>保存時点の日（01~31）</td>
+            </tr>
+            <tr>
+              <td>?saved-hour?</td>
+              <td>保存時点の時間（時間：00~23）</td>
+            </tr>
+            <tr>
+              <td>?saved-minute?</td>
+              <td>保存時点の時間（分：00~59）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     </section>
 
-    <input type="button" value="設定を保存" id="save-button"/>
-
     <script src="options.js"></script>
   </body>
-
 </html>
