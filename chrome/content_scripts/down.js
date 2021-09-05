@@ -6,12 +6,13 @@
     fanclub_ownername = fanclub_ownername[fanclub_ownername.length-1].textContent.split("さんを応援しよう")[0]
     let fanclub_name = document.querySelectorAll(".fanclub-name")
     fanclub_name = fanclub_name[0].textContent
-    let posted_date = document.querySelector(".post-meta > small.post-date").textContent.match(/(\d{4})\/(\d{2})\/(\d{2}) (\d{2}):(\d{2})/)
-    let year = posted_date[1]
-    let month = posted_date[2]
-    let day = posted_date[3]
-    let hour = posted_date[4]
-    let minute = posted_date[5]
+    let dt = Date.parse(document.querySelector(".post-meta > small.post-date").textContent)
+    let post_date = new Date(dt)
+    let year = post_date.getFullYear()
+    let month = post_date.getMonth() + 1
+    let day = post_date.getDate()
+    let hour = post_date.getHours()
+    let minute = post_date.getMinutes()
     let post_title = document.querySelector("h1.post-title").textContent
     let post_id = location.href.split("/").pop()
 
